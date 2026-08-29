@@ -1,0 +1,151 @@
+/* Conversation history and local-memory service */
+.chat-shell {
+  min-height: 0;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 15px;
+}
+
+.conversation-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  overflow: auto;
+  padding-right: 3px;
+  border-right: 1px solid rgba(91, 205, 244, .1);
+}
+
+.conversation-sidebar>p {
+  margin: 4px;
+  color: #668493;
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.conversation-sidebar button {
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 9px;
+  text-align: left;
+  background: transparent;
+  color: #8eabb7;
+  cursor: pointer;
+}
+
+.conversation-sidebar button:hover,
+.conversation-sidebar button.selected {
+  border-color: rgba(89, 211, 255, .2);
+  background: rgba(19, 207, 255, .07);
+  color: #eaffff;
+}
+
+.conversation-sidebar button strong,
+.conversation-sidebar button small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.conversation-sidebar button strong {
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.conversation-sidebar button small {
+  margin-top: 4px;
+  color: #668493;
+  font-size: 7px;
+}
+
+.conversation-sidebar .new-conversation {
+  border-color: rgba(89, 211, 255, .28);
+  color: var(--accent);
+  text-align: center;
+  font-size: 9px;
+}
+
+.conversation-sidebar .new-conversation:hover {
+  background: rgba(19, 207, 255, .13);
+}
+
+.history-label {
+  margin: 9px 4px 1px;
+  color: #64818e;
+  font-size: 7px;
+  letter-spacing: .12em;
+}
+
+.chat-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-content .message-list {
+  flex: 1;
+  max-height: none;
+}
+
+.local-badge.connected {
+  border-color: rgba(55, 255, 156, .35);
+  color: #7dffb1;
+}
+
+.local-badge.offline {
+  border-color: rgba(255, 100, 115, .35);
+  color: #ff9ca6;
+}
+
+.voice-page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.secondary-button {
+  border: 1px solid rgba(93, 221, 255, .34);
+  border-radius: 10px;
+  padding: 12px 16px;
+  background: rgba(19, 207, 255, .05);
+  color: #cceaf4;
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  border-color: var(--accent);
+  background: rgba(19, 207, 255, .12);
+  color: #fff;
+}
+
+.voice-style-note {
+  margin-top: 18px !important;
+  color: #7899a7 !important;
+  font-size: 10px !important;
+}
+
+@media (max-width: 720px) {
+  .chat-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .conversation-sidebar {
+    max-height: 130px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(91, 205, 244, .1);
+    padding: 0 0 8px;
+  }
+
+  .voice-page-actions {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .voice-page-actions button {
+    width: 100%;
+  }
+}
